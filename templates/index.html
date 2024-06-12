@@ -5,107 +5,109 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sistema de Recomendación de PC</title>
     <link rel="stylesheet" href="{{ url_for('static', filename='estilo.css') }}">
-    <link rel="stylesheet" href="app.py">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kanit:wght@800&display=swap" rel="stylesheet">
-
-</head>
-
 </head>
 <body>
     <header>
         <section class="textos-header">
             <h1>Sistema de Recomendación de PC</h1>
         </section>
-        <div class="wave" style="height: 150px; overflow: hidden;" ><svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;"><path d="M0.00,49.98 C149.99,150.00 351.77,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path></svg></div>
+        <div class="wave">
+            <svg viewBox="0 0 500 150" preserveAspectRatio="none" style="height: 100%; width: 100%;">
+                <path d="M0.00,49.98 C149.99,150.00 351.77,-49.98 500.00,49.98 L500.00,150.00 L0.00,150.00 Z" style="stroke: none; fill: #fff;"></path>
+            </svg>
+        </div>
     </header>
 
-    <form method="post" class="contenedor" style="display: flex; flex-direction: column; gap: 10px; width: 300px; margin: auto;">
-        <label for="procesador">Procesador:</label>
-        <select name="procesador" id="procesador" required>
-            <option value="Intel Core i5">Intel Core i5</option>
-            <option value="Intel Core i7">Intel Core i7</option>
-            <option value="AMD Ryzen 5">AMD Ryzen 5</option>
-            <option value="Intel Core i3">Intel Core i3</option>
-            <option value="AMD Ryzen 9">AMD Ryzen 9</option>
-            <option value="AMD Ryzen 3">AMD Ryzen 3</option>
-            <img src="{{ url_for('static', filename='compu.jpeg') }}" alt="Descripción de la imagen">
+    <section class="contenedor">
+        <h2 class="titulo">Encuentra la PC Perfecta para Ti</h2>
+        <form method="post" class="formulario">
+            <label for="procesador">Procesador:</label>
+            <select name="procesador" id="procesador" required>
+                <option value="Intel Core i5">Intel Core i5</option>
+                <option value="Intel Core i7">Intel Core i7</option>
+                <option value="AMD Ryzen 5">AMD Ryzen 5</option>
+                <option value="Intel Core i3">Intel Core i3</option>
+                <option value="AMD Ryzen 9">AMD Ryzen 9</option>
+                <option value="AMD Ryzen 3">AMD Ryzen 3</option>
+            </select>
 
-            <!-- Agrega más opciones según sea necesario -->
-        </select>
-    
-        <label for="ram">RAM (GB):</label>
-        <input type="number" name="ram" id="ram" required>
-    
-        <label for="gpu">Tarjeta Gráfica:</label>
-        <select name="gpu" id="gpu" required>
-            <option value="NVIDIA GeForce GTX 1660">NVIDIA GeForce GTX 1660</option>
-            <option value="NVIDIA RTX 3060">NVIDIA RTX 3060</option>
-            <option value="AMD Radeon RX 6700 XT">AMD Radeon RX 6700 XT</option>
-            <option value="NVIDIA GTX 1650">NVIDIA GTX 1650</option>
-            <option value="NVIDIA RTX 3090">NVIDIA RTX 3090</option>
-            <option value="AMD Radeon Vega 7">AMD Radeon Vega 7</option>
-            <option value="NVIDIA GTX 1660 Ti">NVIDIA GTX 1660 Ti</option>
-            <option value="NVIDIA GTX 1650 Super">NVIDIA GTX 1650 Super</option>
-            <option value="AMD Radeon RX 5600 XT">AMD Radeon RX 5600 XT</option>
-            <option value="NVIDIA GTX 1660 Super">NVIDIA GTX 1660 Super</option>
-            <option value="NVIDIA RTX 3080">NVIDIA RTX 3080</option>
-            <option value="NVIDIA GTX 1650">NVIDIA GTX 1650</option>
-            <option value="NVIDIA RTX 3070">NVIDIA RTX 3070</option>
-            <option value="NVIDIA RTX 2080 Super">NVIDIA RTX 2080 Super</option>
-            <option value="Intel UHD Graphics 630">Intel UHD Graphics 630</option>
-            <option value="AMD Radeon RX 6800 XT">AMD Radeon RX 6800 XT</option>
-            <option value="NVIDIA RTX 2080 Ti">NVIDIA RTX 2080 Ti</option>
-            <option value="NVIDIA GTX 1660 Ti">NVIDIA GTX 1660 Ti</option>
-            <option value="NVIDIA RTX 3060">NVIDIA RTX 3060</option>
-            <option value="AMD Radeon RX 5500 XT">AMD Radeon RX 5500 XT</option>
-            <option value="NVIDIA GeForce GTX 1650">NVIDIA GeForce GTX 1650</option>
-            <option value="AMD Radeon RX 560X">AMD Radeon RX 560X</option>
-            <option value="NVIDIA GTX 1660">NVIDIA GTX 1660</option>
-            <option value="NVIDIA RTX 3070">NVIDIA RTX 3070</option>
-            <option value="NVIDIA GTX 1650">NVIDIA GTX 1650</option>
-            <option value="NVIDIA RTX 3060">NVIDIA RTX 3060</option>
-            <option value="AMD Radeon RX 580">AMD Radeon RX 580</option>
-            <option value="NVIDIA GTX 1660 Ti">NVIDIA GTX 1660 Ti</option>
-            <option value="NVIDIA GTX 1050 Ti">NVIDIA GTX 1050 Ti</option>
-            <option value="NVIDIA GTX 1070 Ti">NVIDIA GTX 1070 Ti</option>
-            <!-- Agrega más opciones según sea necesario -->
-        </select>
-    
-        <label for="presupuesto">Presupuesto:</label>
-        <input type="number" name="presupuesto" id="presupuesto" step="0.01" required>
-    
-        <input type="submit" value="Recomendar" style="background-color: #4CAF50; color: white; padding: 14px 20px; margin: 8px 0; border: none; cursor: pointer; width: 100%;">
-    </form>
+            <label for="ram">RAM (GB):</label>
+            <input type="number" name="ram" id="ram" required>
 
-    {% for modelo, caracteristicas in modelos_y_caracteristicas %}
-    <div style="border:1px solid #333; margin:10px; padding:10px; border-radius:5px;">
-        <h2 style="color:#333;">{{ modelo }}</h2>
-        <ul style="list-style-type:none;">
-            <li><strong>Procesador:</strong> {{ caracteristicas[0] }}</li>
-            <li><strong>RAM:</strong> {{ caracteristicas[1] }} GB</li>
-            <li><strong>GPU:</strong> {{ caracteristicas[2] }}</li>
-            <li><strong>Precio:</strong> ${{ caracteristicas[3] }}</li>
-        </ul>
-    </div>
-{% endfor %}
+            <label for="gpu">Tarjeta Gráfica:</label>
+            <select name="gpu" id="gpu" required>
+                <option value="NVIDIA GeForce GTX 1660">NVIDIA GeForce GTX 1660</option>
+                <option value="NVIDIA RTX 3060">NVIDIA RTX 3060</option>
+                <option value="AMD Radeon RX 6700 XT">AMD Radeon RX 6700 XT</option>
+                <option value="NVIDIA GTX 1650">NVIDIA GTX 1650</option>
+                <option value="NVIDIA RTX 3090">NVIDIA RTX 3090</option>
+                <option value="AMD Radeon Vega 7">AMD Radeon Vega 7</option>
+                <option value="NVIDIA GTX 1660 Ti">NVIDIA GTX 1660 Ti</option>
+                <option value="NVIDIA GTX 1650 Super">NVIDIA GTX 1650 Super</option>
+                <option value="AMD Radeon RX 5600 XT">AMD Radeon RX 5600 XT</option>
+                <option value="NVIDIA GTX 1660 Super">NVIDIA GTX 1660 Super</option>
+                <option value="NVIDIA RTX 3080">NVIDIA RTX 3080</option>
+                <option value="NVIDIA RTX 3070">NVIDIA RTX 3070</option>
+                <option value="NVIDIA RTX 2080 Super">NVIDIA RTX 2080 Super</option>
+                <option value="Intel UHD Graphics 630">Intel UHD Graphics 630</option>
+                <option value="AMD Radeon RX 6800 XT">AMD Radeon RX 6800 XT</option>
+                <option value="NVIDIA RTX 2080 Ti">NVIDIA RTX 2080 Ti</option>
+                <option value="AMD Radeon RX 5500 XT">AMD Radeon RX 5500 XT</option>
+                <option value="AMD Radeon RX 580">AMD Radeon RX 580</option>
+                <option value="NVIDIA GTX 1050 Ti">NVIDIA GTX 1050 Ti</option>
+                <option value="NVIDIA GTX 1070 Ti">NVIDIA GTX 1070 Ti</option>
+            </select>
 
+            <label for="presupuesto">Presupuesto:</label>
+            <input type="number" name="presupuesto" id="presupuesto" step="0.01" required>
 
+            <input type="submit" value="Recomendar" class="boton">
+        </form>
+    </section>
+
+    <section class="resultados contenedor">
+        {% for modelo, caracteristicas in modelos_y_caracteristicas %}
+        <div class="resultado">
+            <h2>{{ modelo }}</h2>
+            <ul>
+                <li><strong>Procesador:</strong> {{ caracteristicas[0] }}</li>
+                <li><strong>RAM:</strong> {{ caracteristicas[1] }} GB</li>
+                <li><strong>GPU:</strong> {{ caracteristicas[2] }}</li>
+                <li><strong>Precio:</strong> ${{ caracteristicas[3] }}</li>
+            </ul>
+        </div>
+        {% endfor %}
+    </section>
+
+    <footer id="fin">
+        <div class="contenedor-footer">
+            <div class="content-foo">
+                <h4>Phone</h4>
+                <p>0968147004</p>
+            </div>
+            <div class="content-foo">
+                <h4>Email</h4>
+                <p>TecnoRecomendacion.com</p>
+            </div>
+        </div>
+        <h2 class="titulo-final">&copy; TecnoRecomendacion | Design</h2>
+    </footer>
+
+    <script type="text/javascript">
+        (function(d, t) {
+            var v = d.createElement(t), s = d.getElementsByTagName(t)[0];
+            v.onload = function() {
+                window.voiceflow.chat.load({
+                    verify: { projectID: '6669163fe32e7fe853d535fe' },
+                    url: 'https://general-runtime.voiceflow.com',
+                    versionID: 'production'
+                });
+            }
+            v.src = "https://cdn.voiceflow.com/widget/bundle.mjs"; v.type = "text/javascript"; s.parentNode.insertBefore(v, s);
+        })(document, 'script');
+    </script>
 </body>
-
-<footer id="fin">
-    <div class="contenedor-footer">
-        <div class="content-foo">
-            <h4>Phone</h4>
-            <p>0968147004</p>
-        </div>
-        <div class="content-foo">
-            <h4>Email</h4>
-            <p>TecnoRecomendacion.com</p>
-        </div>
-    </div>
-    <h2 class="titulo-final">&copy; TecnoRecomendacion | Design</h2>
-</footer>
-
 </html>
