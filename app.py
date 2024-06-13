@@ -47,11 +47,11 @@ y_train = np.array([label_encoder_modelo.transform([x[0]])[0] for x in datos_ent
 svm_modelo = SVC(kernel='linear', C=1.0)
 svm_modelo.fit(X_train, y_train)
 
-@app.route('/')
+@app.route('/')  # Esta ruta renderiza el formulario inicial
 def index():
     return render_template('index.html')
 
-@app.route('/', methods=['GET', 'POST'])
+@app.route('/recomendar', methods=['POST'])  # Esta ruta maneja el envío del formulario
 def recomendar():
     procesador_usuario = request.form['procesador']
     ram_usuario = int(request.form['ram'])
